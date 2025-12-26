@@ -1,6 +1,11 @@
 # hydra
 Visuales hechas en hydra, creadas para mi stream en vivo
-ww.youtube.com/@ignaciolois/live
+
+https://www.youtube.com/@ignaciolois/live
+
+Contenido bajo licencia [Creative Commons 4.0 BY-NC](
+https://creativecommons.org/licenses/by-nc/4.0/)
+
 
 # links
 https://kutt.it/lois-2025
