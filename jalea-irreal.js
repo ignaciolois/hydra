@@ -1,0 +1,42 @@
+// JALEA IRREAL
+// L.O.I.S.
+// CC BY-NC
+// https://github.com/ignaciolois/hydra
+
+s0.initCam()
+src(s0)
+	.thresh(.1)
+	.posterize(3)
+	.pixelate(900, 900)
+	.out(o0)
+
+// voronoi(4, .2, .2).out(o0)
+src(o0)
+	.color(0, 1, 1)
+	.blend(src(o0)
+		.scrollX(() => 1.05 + Math.sin(time) * .05)
+		.color(1, 0, 1)
+		.invert([1, -1, 1, -1]), 0.2)
+	.blend(src(o0)
+		.scrollX(() => 1.06 + Math.sin(time) * -.06)
+		.color(1, 1, 0)
+		.invert([-1, 1, -1, 1]), 0.2)
+	.blend(src(o0)
+		.scrollY(() => 1.07 + Math.sin(time) * .07)
+		.invert([-1, -1, 1, 1])
+		.color(1, 0, 0), 0.2)
+	.blend(src(o0)
+		.scrollY(() => 1.08 + Math.sin(time) * -.08)
+		.invert([-1, 1, 1, -1])
+		.color(0, 0, 1), 0.2)
+	.blend(src(o0)
+		.scrollY(() => 1.09 + Math.sin(time) * .09)
+		.invert([1, 1, -1, -1])
+		.color(0, 1, 0), 0.2)
+	.modulateKaleid(noise(.9, .1)
+		.modulateRotate(noise(.1), .2), .1)
+	.modulateRotate(shape(99)
+		.scale(() => 2 + Math.sin(time * 0.5) * 2), () => Math.sin(time + (Math.sin(time) * 5 + 5)) * Math.PI)
+	.out(o1)
+
+render(o1)
